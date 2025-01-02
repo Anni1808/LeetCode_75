@@ -1,0 +1,27 @@
+class Solution {
+    public String reverseVowels(String s) {
+        char words[] = s.toCharArray();
+        int start = 0;
+        int end = s.length()-1;
+        String vow = "AEIOUaeiou";
+        while(start<end){
+            while(start<end && vow.indexOf(words[start])==-1){
+                start++;
+            }
+
+            while(start<end && vow.indexOf(words[end])==-1){
+                end--;
+            }
+
+            char temp = words[start];
+            words[start] = words[end];
+            words[end] = temp;
+
+            start++;
+            end--;
+        }
+
+        String res = new String(words);
+        return res;
+    }
+}
